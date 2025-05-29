@@ -1,0 +1,383 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2021 Jitin Nair
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%	
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,12pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip}
+\usepackage{amsmath} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[style=apa,sortcites=true,sorting=ynt,backend=biber]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% \raisebox{-0.05\height}\faGithub\ username \ | \
+% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% \end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{Ho Han Sheng} \\[7.5pt]
+\href{https://ho-han-sheng.github.io}{\raisebox{-0.05\height}\faGlobe\ ho-han-sheng} \ $|$ \ 
+\href{https://github.com/ho-han-sheng}{\raisebox{-0.05\height}\faGithub\ GitHub} \ $|$ \ 
+\href{https://linkedin.com/in/hsho}{\raisebox{-0.05\height}\faLinkedin\ hsho} \ $|$ \ 
+\href{mailto:hsho005@suss.edu.sg}{\raisebox{-0.05\height}\faEnvelope \ hsho005@suss.edu.sg} \ $|$ \
+\href{https://orcid.org/0009-0000-8091-4045}{\raisebox{-0.05\height}\faOrcid
+ \ 0009-0000-8091-4045} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%Experience
+\section{Work Experience}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+    \textbf{Research Assistant} & \hfill \textbf{Oct 2023 - Present} \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{School of Humanities and Behavioural Sciences, Singapore University of Social Sciences} \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{\textit{\textbf{Primary:}} \href{https://pqrst-lab.github.io/}{Research in Psychophysiology, Quality of Life, Stress, \& Time Use (PQRST) Lab}} \\
+    \multicolumn{2}{@{}X@{}}{
+        \begin{minipage}[t]{\linewidth}
+            \begin{itemize}[nosep, after=\strut, leftmargin=1em, itemsep=3pt]
+                \item[--] PI: A/Prof Emily Ortega
+                \item[--] Conducted data cleaning, pre-processing, and statistical analyses in R for the National Council of Social Service - Ngee Ann Kongsi (NCSS-NAK) 360 Panel Study 
+                \item[--] Conceptualised and applied mixed graphical models for exploratory data analysis of high-dimensional datasets
+                \item[--] Typeset large internal reports ($\approx 400$ pages) with \LaTeX
+                \item[--] Unpublished results informing policy-making on: (a) gender disparities in unpaid work, (b) work-life balance and flexible work arrangements, and (c) quality of life past COVID-19 
+            \end{itemize}
+        \end{minipage}
+    } \\
+    \multicolumn{2}{@{}X@{}}{\vspace{0.05em}} \\
+    \multicolumn{2}{@{}X@{}}{\textit{\textbf{Secondary:}} Behavioural Research and Applied Interpersonal Neuroscience (BRAIN) Lab} \\
+    \multicolumn{2}{@{}X@{}}{
+        \begin{minipage}[t]{\linewidth}
+            \begin{itemize}[nosep, after=\strut, leftmargin=1em, itemsep=3pt]
+                \item[--] PI: A/Prof Atiqah Azhari
+                \item[--] Implemented pre-processing and analytical pipeline for fNIRS data in Python
+                \item[--] Consulting on statistical analyses for three honours capstone projects working with fMRI data
+                \item[--] Developing and teaching Python workshops for lab members and broader psychology student \\population
+            \end{itemize}
+        \end{minipage}
+    } \\
+    \multicolumn{2}{@{}X@{}}{\vspace{0.05em}} \\
+    \multicolumn{2}{@{}X@{}}{\textit{\textbf{Tertiary:}} \href{https://vincentohys.com/}{Lab for Affective and Well-being Science (LAWS)}} \\
+    \multicolumn{2}{@{}X@{}}{
+        \begin{minipage}[t]{\linewidth}
+            \begin{itemize}[nosep, after=\strut, leftmargin=1em, itemsep=3pt]
+                \item[--] PI: Dr. Oh Yong Sheng, Vincent
+                \item[--] Conducting high-dimensional statistical analyses on CHARLS and SHARE-ERIC datasets
+            \end{itemize}
+        \end{minipage}
+    }
+\end{tabularx}
+
+\vspace{0.5em}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+    \textbf{Research Intern} & \hfill \textbf{Jan 2023 - Jul 2023} \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{\href{https://neuroimaginglab.org}{Multimodal Neuroimaging in Neuropsychiatric Disorders Laboratory, Center for Sleep and Cognition,}} \\
+    \multicolumn{2}{@{}X@{}}{\href{https://neuroimaginglab.org}{Yong Loo Lin School of Medicine, National University of Singapore}} \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{
+        \begin{minipage}[t]{\linewidth}
+            \begin{itemize}[nosep, after=\strut, leftmargin=1em, itemsep=3pt]
+                \item[--] Utilised Python for mixture modelling of eye-tracking data
+                \item[--] Utilised R for data cleaning and exploratory data analysis
+                \item[--] Conducted qualitative interviews for stimulus recall tasks
+                \item[--] Scored neurocognitive batteries
+            \end{itemize}
+        \end{minipage}
+    }
+\end{tabularx}
+
+\vspace{0.5em}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+    \textbf{Peer Mentor} & \hfill \textbf{Jan 2022 - Dec 2022} \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{School of Science and Technology, Singapore University of Social Sciences} \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{
+        \begin{minipage}[t]{\linewidth}
+            \begin{itemize}[nosep, after=\strut, leftmargin=1em, itemsep=3pt]
+                \item[--] Conducted weekly tutorials for MTH219: Fundamentals of Statistics and Probability and MTH220: Statistical Methods and Inference
+            \end{itemize}
+        \end{minipage}
+    }
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+\section{Skills}
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+\textbf{Tools} &  \normalsize{\LaTeX, Git, PsychoPy, \href{https://www.emotibit.com/}{EmotiBit}, \href{https://github.com/ccbogel/QualCoder}{QualCoder}, SPSS, Qualtrics}\\
+\textbf{Programming Languages}  &  \normalsize{R, Python}\\  
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	CONFERENCE PRESENTATIONS
+%----------------------------------------------------------------------------------------
+\section{Conference Presentations}
+\begin{refsection}[conferences.bib]
+\nocite{ho_network_2024}
+\nocite{tay_family-eat_2024}
+\printbibliography[heading=none]
+\end{refsection}
+
+%----------------------------------------------------------------------------------------
+%	INTERNAL PUBLICATIONS?
+%----------------------------------------------------------------------------------------
+\section{Publications}
+\begin{refsection}[publications.bib] 
+\nocite{*}
+\printbibliography[heading=none]
+\end{refsection}
+
+%----------------------------------------------------------------------------------------
+%	PROJECTS
+%----------------------------------------------------------------------------------------
+\section{Projects}
+
+\begin{tabularx}{\linewidth}{@{} X >{\raggedleft\arraybackslash}p{5cm} @{}}
+    \href{https://github.com/ho-han-sheng/PSY499}{\textbf{Psychophysiological and Temporal Dynamics of Mixed Emotions}} & \textbf{Ongoing} \\[3.75pt]
+    \multicolumn{2}{@{}p{\linewidth}@{}}{
+        \begin{minipage}[t]{\linewidth}
+            \begin{itemize}[nosep,after=\strut,leftmargin=1em,itemsep=3pt]
+                \item[--] Honours capstone project (Co-Supervisors: A/Prof Emily Ortega; Dr. Oh Yong Sheng, Vincent)
+                \item[--] Integrated psychophysiological measures (EmotiBit), continuous self-reported valence (via game controller), cognitive appraisals, and video stimuli in PsychoPy experiment
+                \item[--] Developing idiographic, dynamical models of emotional experiences with TV-VAR
+                \item[--] Comparing (in)variance in emotional conditions with INIT and group-level similarity via mlVAR and GIMME
+            \end{itemize}
+        \end{minipage}
+    } \\
+\end{tabularx}
+
+\vspace{1ex}
+
+\begin{tabularx}{\linewidth}{@{} X >{\raggedleft\arraybackslash}p{5cm} @{}}
+    \textbf{Effectiveness of Heart Rate Variability Biofeedback Training on Patients Undergoing Cardiac Rehabilitation (HRV-CARE)} & \textbf{Ongoing} \\[3.75pt]
+    \multicolumn{2}{@{}p{\linewidth}@{}}{
+        \begin{minipage}[t]{\linewidth}
+            \begin{itemize}[nosep,after=\strut,leftmargin=1em,itemsep=3pt]
+                \item[--] Conceptualised longitudinal panel research design for randomised control trial
+                \item[--] Devised Structural Equation Modelling (SEM) and Generalised Network Psychometrics analysis plan to examine multimodal psychophysiological and behavioural measures
+                \item[--] Integrated wearable data collection platforms (\href{https://www.technology-doctor.com/en/selfbase}{TechDoctor}) to capture continuous change in biomarkers across study duration
+            \end{itemize}
+        \end{minipage}
+    } \\
+\end{tabularx}
+
+\vspace{1ex}
+
+\begin{tabularx}{\linewidth}{@{} X >{\raggedleft\arraybackslash}p{5cm} @{}}
+    \textbf{Experiences with Quantitative Methods in the Undergraduate Psychology Curriculum} & \textbf{Ongoing} \\[3.75pt]
+    \multicolumn{2}{@{}p{\linewidth}@{}}{
+        \begin{minipage}[t]{\linewidth}
+            \begin{itemize}[nosep,after=\strut,leftmargin=1em,itemsep=3pt]
+                \item[--] Extension of independent research submitted for PSY455: Qualitative Methods
+                \item[--] Phenomenological study on psychology undergraduates' experiences learning quantitative methods
+                \item[--] Results informing redesign of quantitative modules at SUSS
+                \item[--] Implemented \href{https://github.com/openai/whisper}{OpenAI's Whisper} for transcription and QualCoder for analysis
+            \end{itemize}
+        \end{minipage}
+    } \\
+\end{tabularx}
+
+\vspace{1ex}
+
+\begin{tabularx}{\linewidth}{@{} X >{\raggedleft\arraybackslash}p{5cm} @{}}
+    \textbf{Timing of Help and Future Motivation: The Role of Self-Efficacy in Singapore's Academic Context} & \textbf{Jan 2025 - Apr 2025} \\[3.75pt]
+    \multicolumn{2}{@{}p{\linewidth}@{}}{
+        \begin{minipage}[t]{\linewidth}
+            \begin{itemize}[nosep,after=\strut,leftmargin=1em,itemsep=3pt]
+                \item[--] Group research project under PSY405: Applied Research in Social Psychology
+                \item[--] Devised mathematical specifications for hypotheses
+                \item[--] Conceptualised project design and procedures
+                \item[--] Conducted formal analysis (through R) with ANCOVA in a Latent Change Score specification for modelling mediation in a two-instance, pretest-posttest experimental design
+                \item[--] Wrote and interpreted statistical results through an SEM framework
+            \end{itemize}
+        \end{minipage}
+    } \\
+\end{tabularx}
+
+\vspace{1ex}
+
+\begin{tabularx}{\linewidth}{@{} X >{\raggedleft\arraybackslash}p{5cm} @{}}
+    \href{https://psyconnect.github.io/resources/nwcdc-mental-health-toolkit/}{\textbf{Mental Wellness Toolkit @ North West CDC}} & \textbf{2022 -- 2023} \\[3.75pt]
+    \multicolumn{2}{@{}p{\linewidth}@{}}{
+        \begin{minipage}[t]{\linewidth}
+            \begin{itemize}[nosep,after=\strut,leftmargin=1em,itemsep=3pt]
+                \item[--] Conducted literature review on stress
+                \item[--] Authored sections on stress and coping strategies
+            \end{itemize}
+        \end{minipage}
+    } \\
+\end{tabularx}
+
+\vspace{1ex}
+
+\begin{tabularx}{\linewidth}{@{} X >{\raggedleft\arraybackslash}p{5cm} @{}}
+    \textbf{PsyConnect Statistics Support Group} & \textbf{May 2022 -- present} \\[3.75pt]
+    \multicolumn{2}{@{}p{\linewidth}@{}}{
+        \begin{minipage}[t]{\linewidth}
+            \begin{itemize}[nosep,after=\strut,leftmargin=1em,itemsep=3pt]
+                \item[--] Founded and coordinated a peer-run statistics consulting platform for SUSS Psychology students
+            \end{itemize}
+        \end{minipage}
+    } \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	AWARDS
+%----------------------------------------------------------------------------------------
+\section{Awards \& Honours}
+\begin{tabularx}{\linewidth}{@{} X >{\raggedleft\arraybackslash}p{3cm} @{}}
+    \textbf{Student Travel Award}, Singapore University of Social Sciences & \textbf{2024} \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{
+        \begin{minipage}[t]{\linewidth}
+        \begin{itemize}[nosep, after=\strut, leftmargin=1em, itemsep=3pt]
+            \item[--] $\approx\$4700$
+            \item[--] For contributed talk ``Exploratory Network Modelling of Complex Human Systems in Time-Use Research: Results from Wave 1 of the Singapore NCSS-NAK 360 Panel Study'' at Conference on Complex Systems 2024
+        \end{itemize}
+        \end{minipage}
+    } \\
+    \multicolumn{2}{@{}X@{}}{\vspace{0.1em}} \\
+    \textbf{Dean's List}, Singapore University of Social Sciences & \textbf{2024} \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{
+        \begin{minipage}[t]{\linewidth}
+        \begin{itemize}[nosep, after=\strut, leftmargin=1em, itemsep=3pt]
+            \item[--] For excellent performance in the BSc Psychology programme
+            \item[--] Academic accomplishments indicating attainment of a high level of competence and self-discipline
+        \end{itemize}
+        \end{minipage}
+    } \\
+    \multicolumn{2}{@{}X@{}}{\vspace{0.1em}} \\
+    \href{https://www.suss.edu.sg/news-events/suss-news/campus-updates/detail/2025/03/23/empowering-mental-wellness-2023-suss-provost-3h-fund-community-impact-award-winner}{\textbf{SUSS Community Impact Award}}, Singapore University of Social Sciences & \textbf{2023} \\[3.75pt]
+    \multicolumn{2}{@{}X@{}}{
+        \begin{minipage}[t]{\linewidth}
+        \begin{itemize}[nosep, after=\strut, leftmargin=1em, itemsep=3pt]
+            \item[--] For ``Mental Wellness Toolkit @ North West CDC''
+            \item[--] Recognises and spotlights the positive impact of SUSS students' collaborative efforts within the community
+        \end{itemize}
+        \end{minipage}
+    } \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+\section{Education}
+
+\begin{tabularx}{\linewidth}{@{} X >{\raggedleft\arraybackslash}p{3cm} @{}}
+    \href{https://credentials.nus.edu.sg/ecab0868-7c14-4cae-a6a6-1f34352337eb}{\textbf{Professional Certificate in Network Psychometrics for Behavioural and \newline Social Scientists}} & \textbf{Aug 2024} \\
+    \multicolumn{2}{@{}X@{}}{National University of Singapore} \\[3.75pt]
+\end{tabularx}
+
+\begin{tabularx}{\linewidth}{ @{}l r@{} }
+    \textbf{Bachelor of Science (Honours), Psychology} & \hfill \textbf{2020 - present} \\ [3.75pt]
+    \multicolumn{2}{@{}X@{}}{Singapore University of Social Sciences} \\[3.75pt]
+\end{tabularx}
+
+\vfill
+\center{\footnotesize Last updated: \today}
+
+\end{document}
